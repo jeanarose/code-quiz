@@ -22,26 +22,33 @@ var ulElementAnswerChoices = document.getElementById("answer-choices")
 function startQuiz(event){
     event.preventDefault();
 
+    // Change heading to display question, remove paragraph text, and align 'ul' to the left.
     headingDisplay.textContent = "Commonly used data types do NOT include:";
     headingDisplay.setAttribute("style","text-align: left");
     paragraphDisplay.textContent = "";
     ulElementAnswerChoices.setAttribute("style","text-align: left")
 
+    // Create and append 'li' to 'ul' that holds the first answer choice button.
     var firstAnswerChoice = document.createElement("li");
     firstAnswerChoice.textContent = "";
     ulElementAnswerChoices.append(firstAnswerChoice);
 
+    // Create and append button to 'li' that displays the first answer choice. 
     var firstAnswerButton = document.createElement("button");
     firstAnswerButton.className = "btn";
     firstAnswerButton.textContent = "1. strings";
     ulElementAnswerChoices.append(firstAnswerButton);
     
+    // Create and append 'li' to 'ul' that holds the second answer choice button.
+    var secondAnswerChoice = document.createElement("li");
+    secondAnswerChoice.textContent = "";
+    ulElementAnswerChoices.append(secondAnswerChoice);
 
-    // var secondAnswerChoice = document.createElement("button");
-    // secondAnswerChoice = document.createElement("button");
-    // secondAnswerChoice.className = "btn";
-    // secondAnswerChoice.textContent = "2. booleans";
-    // ulElementAnswerChoices.append(secondAnswerChoice);
+    // Create and append button to 'li' that displays the second answer choice.
+    var secondAnswerButton = document.createElement("button");
+    secondAnswerButton.className = "btn";
+    secondAnswerButton.textContent = "2. booleans";
+    ulElementAnswerChoices.append(secondAnswerButton);
 
     // var thirdAnswerChoice = document.createElement("button");
     // var fourthAnswerChoice = document.createElement("button");

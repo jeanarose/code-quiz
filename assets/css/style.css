@@ -15,6 +15,7 @@ ul {
 .btn {
     background-color: #4B326D;
     color: white;
+    margin-bottom: 10px;
 }
 
 .btn:hover {
