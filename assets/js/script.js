@@ -3,72 +3,66 @@
 // 2. Add content
 // 3. Append to an existing element
 
-// WHEN I answer a question
-// THEN I am presented with another question
-
-// When the start button is clicked, the first question and answers appear
-// Will need:
-// - An event listener "click" for the Start Quiz button that listens for a function
-
-// Variables for start button, heading display, and paragraph display. Start button
-// is used for event listener and head display and paragraph display are used to alter
-// the display on the page.
+// Variables that hold existing elements.
 var startButton = document.querySelector("button");
 var headingDisplay = document.querySelector("h1");
 var paragraphDisplay = document.querySelector("p");
 var ulElementAnswerChoices = document.getElementById("answer-choices")
 
-// Function for Start Button
+// Create 'li' elements and  buttons.
+var firstAnswerChoice = document.createElement("li");
+var firstAnswerButton = document.createElement("button");
+var secondAnswerChoice = document.createElement("li");
+var secondAnswerButton = document.createElement("button");
+var thirdAnswerChoice = document.createElement("li");
+var thirdAnswerButton = document.createElement("button");
+var fourthAnswerChoice = document.createElement("li");
+var fourthAnswerButton = document.createElement("button");
+
+// Add class to buttons
+firstAnswerButton.className = "btn";
+secondAnswerButton.className = "btn";
+thirdAnswerButton.className = "btn";
+fourthAnswerButton.className = "btn";
+
+// Function for 'Start Button'
 function startQuiz(event){
     event.preventDefault();
 
-    // Change heading to display question, remove paragraph text, and align 'ul' to the left.
+    // Change heading to display question and remove paragraph text.
     headingDisplay.textContent = "Commonly used data types do NOT include:";
     headingDisplay.setAttribute("style","text-align: left");
     paragraphDisplay.textContent = "";
-    ulElementAnswerChoices.setAttribute("style","text-align: left")
 
-    // Create and append 'li' to 'ul' that holds the first answer choice button.
-    var firstAnswerChoice = document.createElement("li");
+    // Append 'li' to 'ul' that holds the first answer choice button.
     firstAnswerChoice.textContent = "";
     ulElementAnswerChoices.append(firstAnswerChoice);
 
     // Create and append button to 'li' that displays the first answer choice. 
-    var firstAnswerButton = document.createElement("button");
-    firstAnswerButton.className = "btn";
     firstAnswerButton.textContent = "1. strings";
     firstAnswerChoice.append(firstAnswerButton);
     
     // Create and append 'li' to 'ul' that holds the second answer choice button.
-    var secondAnswerChoice = document.createElement("li");
     secondAnswerChoice.textContent = "";
     ulElementAnswerChoices.append(secondAnswerChoice);
 
     // Create and append button to 'li' that displays the second answer choice.
-    var secondAnswerButton = document.createElement("button");
-    secondAnswerButton.className = "btn";
     secondAnswerButton.textContent = "2. booleans";
     secondAnswerChoice.append(secondAnswerButton);
 
     // Create and append 'li' to 'ul' that holds the third answer choice button.
-    var thirdAnswerChoice = document.createElement("li");
     thirdAnswerChoice.textContent = "";
     ulElementAnswerChoices.append(thirdAnswerChoice);
 
     // Create and append button to 'li' that displays the third answer choice.
-    var thirdAnswerButton = document.createElement("button");
-    thirdAnswerButton.className = "btn";
     thirdAnswerButton.textContent = "3. alerts"
     thirdAnswerChoice.append(thirdAnswerButton)
 
     // Create and append 'li' to 'ul' that holds the fourth answer choice button.
-    var fourthAnswerChoice = document.createElement("li");
     fourthAnswerChoice.textContent = "";
     ulElementAnswerChoices.append(fourthAnswerChoice);
 
     // Create and append button to 'li' that displays the fourth answer choice.
-    var fourthAnswerButton = document.createElement("button");
-    fourthAnswerButton.className = "btn";
     fourthAnswerButton.textContent = "4. numbers";
     fourthAnswerChoice.append(fourthAnswerButton);
 }
