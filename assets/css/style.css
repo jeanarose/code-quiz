@@ -1,0 +1,10 @@
+.container {
+    margin-top: 100px;
+    width: 60%;
+    text-align: center;
+}
+
+.btn {
+    background-color: #4B326D;
+    color: white;
+}
