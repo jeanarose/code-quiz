@@ -22,7 +22,13 @@
 
 
 ## Credits
+The following people contributed to the success of this application. You can view their GitHub profiles by clicking on their names:
+* [Jonathan Watson](https://github.com/jonathanjwatson)
 
+The following sites were used to find code to make Code Quiz function properly:
+* [Stack Overflow: ](https://stackoverflow.com/questions/1115310/how-can-i-add-a-class-to-a-dom-element-in-javascript)Add a class name using DOM manipulation
+* [Stack Overflow: ](https://stackoverflow.com/questions/8289805/getting-rid-of-bullet-points-from-ul)Remove styling from unordered list
+* [Stack Overflow: ](https://stackoverflow.com/questions/1988514/javascript-css-how-to-add-and-remove-multiple-css-classes-to-an-element)Adding an additional class to an element using DOM manipulation
 
 ## License
 MIT License
