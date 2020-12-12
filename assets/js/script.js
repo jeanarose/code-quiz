@@ -87,22 +87,20 @@ startButton.addEventListener("click", startQuiz);
 function firstQuestion(event){
     // Add horizontal line
     if(event.target.matches("button")){
-        console.log("You clicked a button!");
         outcomeDisplay.setAttribute("style","display: block");
     }
-    
 
-// Conditional to check if the answer was right or wrong
-// if(className === "correct-answer")){
-//     // add horizontal line
-//     // add "Correct!" underneath horizontal line
-//     // take user to the next page
-// } else {
-//     // add horizontal line
-//     // add "Wrong!" underneath horizontal line
-//     // take user to the next page
-//     // deduct 10 seconds
-// }
+    // Conditional to check if the answer was right or wrong
+    // if(className === "correct-answer"){
+    //     var correctDisplay = document.createElement("p")
+    //     correctDisplay.textContent = "Correct!";
+    //     outcomeDisplay.append(correctDisplay)
+    // } else {
+    //     // add horizontal line
+    //     // add "Wrong!" underneath horizontal line
+    //     // take user to the next page
+    //     // deduct 10 seconds
+    // }
 }
 
 // Event listener for 'ul' element with 'li' answer choices.
