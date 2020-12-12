@@ -55,8 +55,10 @@ function startQuiz(event){
     ulElementAnswerChoices.append(thirdAnswerChoice);
 
     // Create and append button to 'li' that displays the third answer choice.
-    thirdAnswerButton.textContent = "3. alerts"
-    thirdAnswerChoice.append(thirdAnswerButton)
+    // Add class for correct answer.
+    thirdAnswerButton.textContent = "3. alerts";
+    thirdAnswerButton.className = "correct-answer";
+    thirdAnswerChoice.append(thirdAnswerButton);
 
     // Create and append 'li' to 'ul' that holds the fourth answer choice button.
     fourthAnswerChoice.textContent = "";
@@ -65,6 +67,9 @@ function startQuiz(event){
     // Create and append button to 'li' that displays the fourth answer choice.
     fourthAnswerButton.textContent = "4. numbers";
     fourthAnswerChoice.append(fourthAnswerButton);
+
+    // Remove Start Quiz button from page.
+    startButton.setAttribute("style","display:none");
 }
 
 // Event listener for Start Button 
