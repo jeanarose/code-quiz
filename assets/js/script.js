@@ -59,8 +59,16 @@ function writeNextQuestion(){
     // Check if the answer is correct
     answerButton.addEventListener("click", function(event){
       if(event.target.textContent === questionsArray[questionTracker].correctAnswer){
+        outcomeDisplay.setAttribute("style","display: block");
+        var correctDisplay = document.createElement("p");
+        correctDisplay.textContent = "Correct!"
+        outcomeDisplay.append(correctDisplay);
         console.log("You clicked the right answer")
       } else {
+        outcomeDisplay.setAttribute("style","display: block");
+        var wrongDisplay = document.createElement("p");
+        wrongDisplay.textContent = "Wrong!"
+        outcomeDisplay.append(wrongDisplay);
         console.log("You clicked the wrong answer")
       }
     })
