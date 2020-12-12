@@ -8,6 +8,7 @@ var startButton = document.querySelector("button");
 var headingDisplay = document.querySelector("h1");
 var paragraphDisplay = document.querySelector("p");
 var ulElementAnswerChoices = document.getElementById("answer-choices");
+var outcomeDisplay = document.getElementById("outcome");
 
 // Create 'li' elements and  buttons.
 var firstAnswerChoice = document.createElement("li");
@@ -83,11 +84,39 @@ function startQuiz(event) {
 // Event listener for Start Button
 startButton.addEventListener("click", startQuiz);
 
+// function firstQuestion(event){
+//     // Add horizontal line
+//     if(event.target.matches("li")){
+//         var horizontalLine = document.createElement("hr");
+//         horizontalLine.textContent = "";
+//         outcomeDisplay.append(horizontalLine);
+//     }
+    
+
 // Conditional to check if the answer was right or wrong
-// if(what was clicked === correct answer){
+// if(className === "correct-answer")){
 //     // add horizontal line
 //     // add "Correct!" underneath horizontal line
+//     // take user to the next page
+// } else {
+//     // add horizontal line
+//     // add "Wrong!" underneath horizontal line
+//     // take user to the next page
+//     // deduct 10 seconds
 // }
+// }
+
+// Event listener for 'ul' element with 'li' answer choices.
+// ulElementAnswerChoices.addEventListener("click", firstQuestion);
+
+
+
+
+
+
+
+
+
 
 // - DOM manipulation to change the h1 and paragraph text
 // - DOM manipulation to create answer choice buttons
