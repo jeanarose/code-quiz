@@ -7,14 +7,12 @@
 var firstQuestion = {
   answers: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
   question: "Commonly used data types do NOT include:",
-  correctAnswer: "3. alerts"
+  correctAnswer: "3. alerts",
 };
 
 var questionTracker = 0;
 
-var questionsArray = [
-  firstQuestion
-]
+var questionsArray = [firstQuestion];
 
 // Variables that hold existing elements.
 var startButton = document.querySelector("button");
@@ -22,7 +20,6 @@ var headingDisplay = document.querySelector("h1");
 var paragraphDisplay = document.querySelector("p");
 var ulElement = document.getElementById("answer-choices");
 var outcomeDisplay = document.querySelector("#outcome");
-
 
 // Function for 'Start Button'
 function startQuiz(event) {
@@ -39,12 +36,12 @@ function startQuiz(event) {
   // Writes the next question
   writeNextQuestion();
 }
-function writeNextQuestion(){
-   // Add horizontal line
+function writeNextQuestion() {
+  // Add horizontal line
   //  if (event.target.matches("button")) {
   //   outcomeDisplay.setAttribute("style", "display: block");
   // }
-  for(var i = 0; i < questionsArray[questionTracker].answers.length; i++){
+  for (var i = 0; i < questionsArray[questionTracker].answers.length; i++) {
     // Create li and append it to ul
     var liElement = document.createElement("li");
     liElement.textContent = "";
@@ -57,30 +54,35 @@ function writeNextQuestion(){
     liElement.append(answerButton);
 
     // Check if the answer is correct
-    answerButton.addEventListener("click", function(event){
-      if(event.target.textContent === questionsArray[questionTracker].correctAnswer){
-        outcomeDisplay.setAttribute("style","display: block");
-        var correctDisplay = document.createElement("p");
-        correctDisplay.textContent = "Correct!"
-        outcomeDisplay.append(correctDisplay);
-        console.log("You clicked the right answer")
+    answerButton.addEventListener("click", function (event) {
+      if (
+        event.target.textContent ===
+        questionsArray[questionTracker].correctAnswer
+      ) {
+        var timedCorrectDisplay = function () {
+          outcomeDisplay.setAttribute("style", "display: block");
+          var correctDisplay = document.createElement("p");
+          correctDisplay.textContent = "Correct!";
+          outcomeDisplay.append(correctDisplay);
+          console.log("You clicked the right answer");
+        };
+        setTimeout(timedCorrectDisplay, 10);
       } else {
-        outcomeDisplay.setAttribute("style","display: block");
-        var wrongDisplay = document.createElement("p");
-        wrongDisplay.textContent = "Wrong!"
-        outcomeDisplay.append(wrongDisplay);
-        console.log("You clicked the wrong answer")
+        var timedWrongDisplay = function () {
+          outcomeDisplay.setAttribute("style", "display: block");
+          var wrongDisplay = document.createElement("p");
+          wrongDisplay.textContent = "Wrong!";
+          outcomeDisplay.append(wrongDisplay);
+          console.log("You clicked the wrong answer");
+        };
+        setTimeout(timedWrongDisplay, 10);
       }
-    })
+    });
   }
 }
 
-
-
 // Event listener for Start Button
 startButton.addEventListener("click", startQuiz);
-
-
 
 // Event listener for 'ul' element with 'li' answer choices.
 
