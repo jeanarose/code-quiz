@@ -55,11 +55,23 @@ function writeNextQuestion(){
     answerButton.className = "btn";
     answerButton.textContent = questionsArray[questionTracker].answers[i];
     liElement.append(answerButton);
+
+    // Check if the answer is correct
+    answerButton.addEventListener("click", function(event){
+      if(event.target.textContent === questionsArray[questionTracker].correctAnswer){
+        console.log("You clicked the right answer")
+      } else {
+        console.log("You clicked the wrong answer")
+      }
+    })
   }
 }
 
+
+
 // Event listener for Start Button
 startButton.addEventListener("click", startQuiz);
+
 
 
 // Event listener for 'ul' element with 'li' answer choices.
