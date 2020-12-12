@@ -3,6 +3,14 @@
 // 2. Add content
 // 3. Append to an existing element
 
+// First question object
+var firstQuestion = {
+  answerOne: "1. strings",
+  answerTwo: "2. booleans",
+  answerThree: "3. alerts",
+  answerFour: "4. numbers"
+}
+
 // Variables that hold existing elements.
 var startButton = document.querySelector("button");
 var headingDisplay = document.querySelector("h1");
@@ -46,8 +54,7 @@ function startQuiz(event) {
 
   // Create and append button to 'li' that displays the first answer choice.
   // Add class for wrong answer.
-  firstAnswerButton.textContent = "1. strings";
-  firstAnswerButton.className.add = "wrong-answer";
+  firstAnswerButton.textContent = firstQuestion.answerOne;
   firstAnswerChoice.append(firstAnswerButton);
 
   // Create and append 'li' to 'ul' that holds the second answer choice button.
@@ -55,8 +62,7 @@ function startQuiz(event) {
 
   // Create and append button to 'li' that displays the second answer choice.
   // Add class for wrong answer.
-  secondAnswerButton.textContent = "2. booleans";
-  secondAnswerButton.className.add = "wrong-answer";
+  secondAnswerButton.textContent = firstQuestion.answerTwo;
   secondAnswerChoice.append(secondAnswerButton);
 
   // Create and append 'li' to 'ul' that holds the third answer choice button.
@@ -64,8 +70,7 @@ function startQuiz(event) {
 
   // Create and append button to 'li' that displays the third answer choice.
   // Add class for correct answer.
-  thirdAnswerButton.textContent = "3. alerts";
-  thirdAnswerButton.className.add = "correct-answer";
+  thirdAnswerButton.textContent = firstQuestion.answerThree;
   thirdAnswerChoice.append(thirdAnswerButton);
 
   // Create and append 'li' to 'ul' that holds the fourth answer choice button.
@@ -73,7 +78,7 @@ function startQuiz(event) {
 
   // Create and append button to 'li' that displays the fourth answer choice.
   // Add class for wrong answer.
-  fourthAnswerButton.textContent = "4. numbers";
+  fourthAnswerButton.textContent = firstQuestion.answerFour;
   fourthAnswerButton.className.add = "wrong-answer";
   fourthAnswerChoice.append(fourthAnswerButton);
 
@@ -84,36 +89,28 @@ function startQuiz(event) {
 // Event listener for Start Button
 startButton.addEventListener("click", startQuiz);
 
-function firstQuestion(event){
-    // Add horizontal line
-    if(event.target.matches("button")){
-        outcomeDisplay.setAttribute("style","display: block");
-    }
+function firstQuestion(event) {
+  // Add horizontal line
+  if (event.target.matches("li")) {
+    outcomeDisplay.setAttribute("style", "display: block");
+  }
 
-    // Conditional to check if the answer was right or wrong
-    // if(className === "correct-answer"){
-    //     var correctDisplay = document.createElement("p")
-    //     correctDisplay.textContent = "Correct!";
-    //     outcomeDisplay.append(correctDisplay)
-    // } else {
-    //     // add horizontal line
-    //     // add "Wrong!" underneath horizontal line
-    //     // take user to the next page
-    //     // deduct 10 seconds
-    // }
+  // Conditional to check if the answer was right or wrong
+  // if (correctAnswer) {
+  //   var correctDisplay = document.createElement("p");
+  //   correctDisplay.textContent = "Correct!";
+  //   outcomeDisplay.append(correctDisplay);
+  //   correctDisplay.setAttribute("style", "text-align: left");
+  //   // take user to the next page
+  // } else {
+    
+  //   // take user to the next page
+  //   // deduct 10 seconds
+  // }
 }
 
 // Event listener for 'ul' element with 'li' answer choices.
 ulElementAnswerChoices.addEventListener("click", firstQuestion);
-
-
-
-
-
-
-
-
-
 
 // - DOM manipulation to change the h1 and paragraph text
 // - DOM manipulation to create answer choice buttons
