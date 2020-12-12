@@ -4,12 +4,10 @@
 // 3. Append to an existing element
 
 // First question object
-var firstQuestion = {
-  answerOne: "1. strings",
-  answerTwo: "2. booleans",
-  answerThree: "3. alerts",
-  answerFour: "4. numbers"
-}
+var firstQuestionObject = {
+  answers: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
+  question: "Commonly used data types do NOT include:",
+};
 
 // Variables that hold existing elements.
 var startButton = document.querySelector("button");
@@ -45,7 +43,7 @@ function startQuiz(event) {
   event.preventDefault();
 
   // Change heading to display question and remove paragraph text.
-  headingDisplay.textContent = "Commonly used data types do NOT include:";
+  headingDisplay.textContent = firstQuestionObject.question;
   headingDisplay.setAttribute("style", "text-align: left");
   paragraphDisplay.textContent = "";
 
@@ -54,7 +52,7 @@ function startQuiz(event) {
 
   // Create and append button to 'li' that displays the first answer choice.
   // Add class for wrong answer.
-  firstAnswerButton.textContent = firstQuestion.answerOne;
+  firstAnswerButton.textContent = firstQuestionObject.answers[0];
   firstAnswerChoice.append(firstAnswerButton);
 
   // Create and append 'li' to 'ul' that holds the second answer choice button.
@@ -62,7 +60,7 @@ function startQuiz(event) {
 
   // Create and append button to 'li' that displays the second answer choice.
   // Add class for wrong answer.
-  secondAnswerButton.textContent = firstQuestion.answerTwo;
+  secondAnswerButton.textContent = firstQuestionObject.answers[1];
   secondAnswerChoice.append(secondAnswerButton);
 
   // Create and append 'li' to 'ul' that holds the third answer choice button.
@@ -70,7 +68,7 @@ function startQuiz(event) {
 
   // Create and append button to 'li' that displays the third answer choice.
   // Add class for correct answer.
-  thirdAnswerButton.textContent = firstQuestion.answerThree;
+  thirdAnswerButton.textContent = firstQuestionObject.answers[2];
   thirdAnswerChoice.append(thirdAnswerButton);
 
   // Create and append 'li' to 'ul' that holds the fourth answer choice button.
@@ -78,8 +76,7 @@ function startQuiz(event) {
 
   // Create and append button to 'li' that displays the fourth answer choice.
   // Add class for wrong answer.
-  fourthAnswerButton.textContent = firstQuestion.answerFour;
-  fourthAnswerButton.className.add = "wrong-answer";
+  fourthAnswerButton.textContent = firstQuestionObject.answers[3];
   fourthAnswerChoice.append(fourthAnswerButton);
 
   // Remove Start Quiz button from page.
@@ -103,7 +100,7 @@ function firstQuestion(event) {
   //   correctDisplay.setAttribute("style", "text-align: left");
   //   // take user to the next page
   // } else {
-    
+
   //   // take user to the next page
   //   // deduct 10 seconds
   // }
