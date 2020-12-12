@@ -8,7 +8,7 @@ var startButton = document.querySelector("button");
 var headingDisplay = document.querySelector("h1");
 var paragraphDisplay = document.querySelector("p");
 var ulElementAnswerChoices = document.getElementById("answer-choices");
-var outcomeDisplay = document.getElementById("outcome");
+var outcomeDisplay = document.querySelector("#outcome");
 
 // Create 'li' elements and  buttons.
 var firstAnswerChoice = document.createElement("li");
@@ -84,13 +84,12 @@ function startQuiz(event) {
 // Event listener for Start Button
 startButton.addEventListener("click", startQuiz);
 
-// function firstQuestion(event){
-//     // Add horizontal line
-//     if(event.target.matches("li")){
-//         var horizontalLine = document.createElement("hr");
-//         horizontalLine.textContent = "";
-//         outcomeDisplay.append(horizontalLine);
-//     }
+function firstQuestion(event){
+    // Add horizontal line
+    if(event.target.matches("button")){
+        console.log("You clicked a button!");
+        outcomeDisplay.setAttribute("style","display: block");
+    }
     
 
 // Conditional to check if the answer was right or wrong
@@ -104,10 +103,10 @@ startButton.addEventListener("click", startQuiz);
 //     // take user to the next page
 //     // deduct 10 seconds
 // }
-// }
+}
 
 // Event listener for 'ul' element with 'li' answer choices.
-// ulElementAnswerChoices.addEventListener("click", firstQuestion);
+ulElementAnswerChoices.addEventListener("click", firstQuestion);
 
 
 
