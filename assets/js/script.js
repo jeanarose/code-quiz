@@ -10,7 +10,8 @@ var paragraphDisplay = document.querySelector("p");
 
 function startQuiz(event){
     event.preventDefault();
-    headingDisplay.textContent = "Changed display";
+    headingDisplay.textContent = "Commonly used data types do NOT include:";
+    headingDisplay.setAttribute("style","text-align: left");
     paragraphDisplay.textContent = "";
 }
 
