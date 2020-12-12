@@ -37,7 +37,7 @@ function startQuiz(event){
     var firstAnswerButton = document.createElement("button");
     firstAnswerButton.className = "btn";
     firstAnswerButton.textContent = "1. strings";
-    ulElementAnswerChoices.append(firstAnswerButton);
+    firstAnswerChoice.append(firstAnswerButton);
     
     // Create and append 'li' to 'ul' that holds the second answer choice button.
     var secondAnswerChoice = document.createElement("li");
@@ -48,9 +48,19 @@ function startQuiz(event){
     var secondAnswerButton = document.createElement("button");
     secondAnswerButton.className = "btn";
     secondAnswerButton.textContent = "2. booleans";
-    ulElementAnswerChoices.append(secondAnswerButton);
+    secondAnswerChoice.append(secondAnswerButton);
 
-    // var thirdAnswerChoice = document.createElement("button");
+    // Create and append 'li' to 'ul' that holds the second answer choice button.
+    var thirdAnswerChoice = document.createElement("li");
+    thirdAnswerChoice.textContent = "";
+    ulElementAnswerChoices.append(thirdAnswerChoice);
+
+    // Create and append button to 'li' that displays the second answer choice.
+    var thirdAnswerButton = document.createElement("button");
+    thirdAnswerButton.className = "btn";
+    thirdAnswerButton.textContent = "3. alerts"
+    thirdAnswerChoice.append(thirdAnswerButton)
+
     // var fourthAnswerChoice = document.createElement("button");
 }
 
