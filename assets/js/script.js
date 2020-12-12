@@ -50,18 +50,27 @@ function startQuiz(event){
     secondAnswerButton.textContent = "2. booleans";
     secondAnswerChoice.append(secondAnswerButton);
 
-    // Create and append 'li' to 'ul' that holds the second answer choice button.
+    // Create and append 'li' to 'ul' that holds the third answer choice button.
     var thirdAnswerChoice = document.createElement("li");
     thirdAnswerChoice.textContent = "";
     ulElementAnswerChoices.append(thirdAnswerChoice);
 
-    // Create and append button to 'li' that displays the second answer choice.
+    // Create and append button to 'li' that displays the third answer choice.
     var thirdAnswerButton = document.createElement("button");
     thirdAnswerButton.className = "btn";
     thirdAnswerButton.textContent = "3. alerts"
     thirdAnswerChoice.append(thirdAnswerButton)
 
-    // var fourthAnswerChoice = document.createElement("button");
+    // Create and append 'li' to 'ul' that holds the fourth answer choice button.
+    var fourthAnswerChoice = document.createElement("li");
+    fourthAnswerChoice.textContent = "";
+    ulElementAnswerChoices.append(fourthAnswerChoice);
+
+    // Create and append button to 'li' that displays the fourth answer choice.
+    var fourthAnswerButton = document.createElement("button");
+    fourthAnswerButton.className = "btn";
+    fourthAnswerButton.textContent = "4. numbers";
+    fourthAnswerChoice.append(fourthAnswerButton);
 }
 
 // Event listener for Start Button 
