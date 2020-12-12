@@ -2,6 +2,10 @@ h1 {
     font-weight: bold;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .container {
     margin-top: 100px;
     width: 60%;
