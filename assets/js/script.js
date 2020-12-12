@@ -4,6 +4,17 @@
 // When the start button is clicked, the first question and answers appear
 // Will need:
 // - An event listener "click" for the Start Quiz button
+var startButton = document.querySelector("button");
+var headingDisplay = document.querySelector("h1");
+var paragraphDisplay = document.querySelector("p");
+
+function startQuiz(event){
+    event.preventDefault();
+    headingDisplay.textContent = "Changed display";
+    paragraphDisplay.textContent = "";
+}
+
+startButton.addEventListener("click", startQuiz);
 // - DOM manipulation to change the h1 and paragraph text
 // - DOM manipulation to create answer choice buttons 
 // - Event listeners on all of the answer choice buttons 
