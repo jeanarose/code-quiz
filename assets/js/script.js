@@ -19,6 +19,12 @@ var thirdAnswerButton = document.createElement("button");
 var fourthAnswerChoice = document.createElement("li");
 var fourthAnswerButton = document.createElement("button");
 
+// Text content for 'li's is set to empty
+firstAnswerChoice.textContent = "";
+secondAnswerChoice.textContent = "";
+thirdAnswerChoice.textContent = "";
+fourthAnswerChoice.textContent = "";
+
 // Add class to buttons
 firstAnswerButton.className = "btn";
 secondAnswerButton.className = "btn";
@@ -35,43 +41,39 @@ function startQuiz(event) {
   paragraphDisplay.textContent = "";
 
   // Append 'li' to 'ul' that holds the first answer choice button.
-  firstAnswerChoice.textContent = "";
   ulElementAnswerChoices.append(firstAnswerChoice);
 
   // Create and append button to 'li' that displays the first answer choice.
   // Add class for wrong answer.
   firstAnswerButton.textContent = "1. strings";
-  firstAnswerButton.className = "wrong-answer";
+  firstAnswerButton.className.add = "wrong-answer";
   firstAnswerChoice.append(firstAnswerButton);
 
   // Create and append 'li' to 'ul' that holds the second answer choice button.
-  secondAnswerChoice.textContent = "";
   ulElementAnswerChoices.append(secondAnswerChoice);
 
   // Create and append button to 'li' that displays the second answer choice.
   // Add class for wrong answer.
   secondAnswerButton.textContent = "2. booleans";
-  secondAnswerButton.className = "wrong-answer";
+  secondAnswerButton.className.add = "wrong-answer";
   secondAnswerChoice.append(secondAnswerButton);
 
   // Create and append 'li' to 'ul' that holds the third answer choice button.
-  thirdAnswerChoice.textContent = "";
   ulElementAnswerChoices.append(thirdAnswerChoice);
 
   // Create and append button to 'li' that displays the third answer choice.
   // Add class for correct answer.
   thirdAnswerButton.textContent = "3. alerts";
-  thirdAnswerButton.className = "correct-answer";
+  thirdAnswerButton.className.add = "correct-answer";
   thirdAnswerChoice.append(thirdAnswerButton);
 
   // Create and append 'li' to 'ul' that holds the fourth answer choice button.
-  fourthAnswerChoice.textContent = "";
   ulElementAnswerChoices.append(fourthAnswerChoice);
 
   // Create and append button to 'li' that displays the fourth answer choice.
   // Add class for wrong answer.
   fourthAnswerButton.textContent = "4. numbers";
-  fourthAnswerButton.className = "wrong-answer";
+  fourthAnswerButton.className.add = "wrong-answer";
   fourthAnswerChoice.append(fourthAnswerButton);
 
   // Remove Start Quiz button from page.
@@ -80,6 +82,13 @@ function startQuiz(event) {
 
 // Event listener for Start Button
 startButton.addEventListener("click", startQuiz);
+
+// Conditional to check if the answer was right or wrong
+// if(what was clicked === correct answer){
+//     // add horizontal line
+//     // add "Correct!" underneath horizontal line
+// }
+
 // - DOM manipulation to change the h1 and paragraph text
 // - DOM manipulation to create answer choice buttons
 // - Event listeners on all of the answer choice buttons
