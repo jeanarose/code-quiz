@@ -63,6 +63,7 @@ var questionsArray = [
 var questionTracker = 0;
 
 // Variables that hold existing elements.
+var startPage = document.getElementById("start-page");
 var startButton = document.querySelector("button");
 var headingDisplay = document.querySelector("h1");
 var paragraphDisplay = document.querySelector("p");
@@ -112,9 +113,8 @@ function startQuiz(event) {
   event.preventDefault();
 
   // Change heading to display question and remove paragraph text.
-  headingDisplay.setAttribute("style", "display: none");
+  startPage.innerHTML = "";
   questionDisplay.textContent = firstQuestion.question;
-  paragraphDisplay.setAttribute("style", "display: none");
 
   // Remove Start Quiz button from page.
   startButton.setAttribute("style", "display: none");
@@ -155,7 +155,7 @@ function writeNextQuestion() {
         wrongDisplayTimer();
       }          
 
-      // Take user to the next question after one second?
+      // Take user to the next question after one second (after the previous question disappears)
       function nextQuestionTimer() {
         var timeLeft = 5;
       
@@ -173,10 +173,8 @@ function writeNextQuestion() {
       nextQuestionTimer();
      
       
-      // Open highscores html
-      // if(questionTracker > questionsArray.length){
-      //   window.open("./highscores.html")
-      // }
+      // 'All done' page appears
+      
     });
   }
 }
@@ -184,13 +182,7 @@ function writeNextQuestion() {
 // Event listener for Start Button
 startButton.addEventListener("click", startQuiz);
 
-// Event listener for 'ul' element with 'li' answer choices.
 
-// - DOM manipulation to change the h1 and paragraph text
-// - DOM manipulation to create answer choice buttons
-// - Event listeners on all of the answer choice buttons
-// - Event listeners / DOM manipulation on each answer choice button such that
-//   when one is clicked, the next question and answers appear
 
 // *** DO SECOND TO LAST ***
 // WHEN I click the start button
