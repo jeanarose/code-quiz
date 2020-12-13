@@ -110,18 +110,21 @@ function writeNextQuestion() {
         event.target.textContent ===
         questionsArray[questionTracker].correctAnswer
       ) {
-          hrElement.setAttribute("style", "display: block");
-          outcomeDisplay.textContent = "Correct!";
+        hrElement.setAttribute("style", "display: block");
+        // outcomeDisplay needs to appear for one second
+        outcomeDisplay.textContent = "Correct!";
       } else {
-          hrElement.setAttribute("style", "display: block");
-          outcomeDisplay.textContent = "Wrong!";
+        hrElement.setAttribute("style", "display: block");
+        // outcomeDisplay needs to appear for one second
+        outcomeDisplay.textContent = "Wrong!";
       }
-      questionTracker++;
-
       // Before next question appears, "Correct!" or "Wrong!" needs to disappear.
+      outcomeDisplay.textContent = "";
 
       // When the next question is written, the buttons/lis overwrite the last question lis
-      
+
+      // Take user to the next question
+      questionTracker++;
       writeNextQuestion();
     });
   }
