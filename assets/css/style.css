@@ -38,3 +38,8 @@ hr {
 #question {
     text-align: left;
 }
+
+#completed-quiz {
+    text-align: left;
+    display: none;
+}

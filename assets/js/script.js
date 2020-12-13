@@ -1,7 +1,12 @@
-// STEPS FOR DOM MANIPULATION:
-// 1. Create an element
-// 2. Add content
-// 3. Append to an existing element
+// Variables that hold existing elements.
+var startPage = document.getElementById("start-page");
+var startButton = document.querySelector("button");
+var headingDisplay = document.querySelector("h1");
+var paragraphDisplay = document.querySelector("p");
+var ulElement = document.getElementById("answer-choices");
+var outcomeDisplay = document.querySelector("#outcome");
+var hrElement = document.querySelector("hr");
+var questionDisplay = document.getElementById("question");
 
 // Question objects
 var firstQuestion = {
@@ -62,16 +67,7 @@ var questionsArray = [
 // Question index tracker
 var questionTracker = 0;
 
-// Variables that hold existing elements.
-var startPage = document.getElementById("start-page");
-var startButton = document.querySelector("button");
-var headingDisplay = document.querySelector("h1");
-var paragraphDisplay = document.querySelector("p");
-var ulElement = document.getElementById("answer-choices");
-var outcomeDisplay = document.querySelector("#outcome");
-var hrElement = document.querySelector("hr");
-var questionDisplay = document.getElementById("question");
-
+// Displays "Correct!" for one second if the user answers correctly
 function correctDisplayTimer() {
   var timeLeft = 5;
 
@@ -90,6 +86,7 @@ function correctDisplayTimer() {
   }, 100);
 }
 
+// Displays "Wrong!" for one second if the user answers incorrectly
 function wrongDisplayTimer() {
   var timeLeft = 5;
 
@@ -108,16 +105,13 @@ function wrongDisplayTimer() {
   }, 100);
 }
 
-// Function for to start the quiz on the click of the Start Button
+// Function that starts quiz 
 function startQuiz(event) {
   event.preventDefault();
 
-  // Change heading to display question and remove paragraph text.
+  // Remove start page content and display first question
   startPage.innerHTML = "";
   questionDisplay.textContent = firstQuestion.question;
-
-  // Remove Start Quiz button from page.
-  startButton.setAttribute("style", "display: none");
 
   // Writes the next question
   writeNextQuestion();
@@ -129,7 +123,7 @@ function writeNextQuestion() {
   ulElement.innerHTML = "";
 
   for (var i = 0; i < questionsArray[questionTracker].answers.length; i++) {
-    // Change question display
+    // Change question display to the next question
     questionDisplay.textContent = questionsArray[questionTracker].question;
 
     // Create li and append it to ul
