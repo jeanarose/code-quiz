@@ -71,6 +71,42 @@ var outcomeDisplay = document.querySelector("#outcome");
 var hrElement = document.querySelector("hr");
 var questionDisplay = document.getElementById("question");
 
+function correctDisplayTimer() {
+  var timeLeft = 5;
+
+  var timeInterval = setInterval(function() {
+    
+    hrElement.setAttribute("style", "display: block");
+    outcomeDisplay.textContent = "Correct!";
+    timeLeft--;
+
+    if (timeLeft === 0) {
+      hrElement.setAttribute("style", "display: none");
+      outcomeDisplay.textContent = "";
+      clearInterval(timeInterval);
+    }
+
+  }, 100);
+}
+
+function wrongDisplayTimer() {
+  var timeLeft = 5;
+
+  var timeInterval = setInterval(function() {
+    
+    hrElement.setAttribute("style", "display: block");
+    outcomeDisplay.textContent = "Wrong!";
+    timeLeft--;
+
+    if (timeLeft === 0) {
+      hrElement.setAttribute("style", "display: none");
+      outcomeDisplay.textContent = "";
+      clearInterval(timeInterval);
+    }
+
+  }, 100);
+}
+
 // Function for to start the quiz on the click of the Start Button
 function startQuiz(event) {
   event.preventDefault();
@@ -104,23 +140,18 @@ function writeNextQuestion() {
     answerButton.textContent = questionsArray[questionTracker].answers[i];
     liElement.append(answerButton);
 
-    // Check if the answer is correct and display "Correct!" or "Wrong!"
+    // Check if the answer is correct and display "Correct!" or "Wrong!" and display for 1 second.
     answerButton.addEventListener("click", function (event) {
       if (
         event.target.textContent ===
         questionsArray[questionTracker].correctAnswer
       ) {
-        hrElement.setAttribute("style", "display: block");
-        // outcomeDisplay needs to appear for one second
-        outcomeDisplay.textContent = "Correct!";
+        correctDisplayTimer();
       } else {
         hrElement.setAttribute("style", "display: block");
-        // outcomeDisplay needs to appear for one second
-        outcomeDisplay.textContent = "Wrong!";
+        wrongDisplayTimer();
       }
-      // Before next question appears, "Correct!" or "Wrong!" needs to disappear.
-      outcomeDisplay.textContent = "";
-
+    
       // When the next question is written, the buttons/lis overwrite the last question lis
 
       // Take user to the next question
