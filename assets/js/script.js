@@ -1,12 +1,14 @@
 // Variables that hold existing elements.
 var startPage = document.getElementById("start-page");
+var questionPage = document.getElementById("question-page");
+var completedQuizPage = document.getElementById("completed-page");
 var startButton = document.querySelector("button");
 var headingDisplay = document.querySelector("h1");
 var paragraphDisplay = document.querySelector("p");
-var ulElement = document.getElementById("answer-choices");
 var outcomeDisplay = document.querySelector("#outcome");
-var hrElement = document.querySelector("hr");
 var questionDisplay = document.getElementById("question");
+var ulElement = document.getElementById("answer-choices");
+var hrElement = document.querySelector("hr");
 
 // Question objects
 var firstQuestion = {
@@ -165,10 +167,12 @@ function writeNextQuestion() {
         }, 100);
       }
       nextQuestionTimer();
-     
-      
+    
       // 'All done' page appears
-      
+      // if(questionTracker.value > questionsArray.length){
+      //   questionPage.setAttribute("style","display:none")
+      //   completedQuizPage.setAttribute("style","display: block");
+      // }
     });
   }
 }
