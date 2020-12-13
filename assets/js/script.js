@@ -116,11 +116,12 @@ function writeNextQuestion() {
           hrElement.setAttribute("style", "display: block");
           outcomeDisplay.textContent = "Wrong!";
       }
-      // Replace button content
-      // for(var i = 0; i < questionsArray[questionTracker].answers.length;i++){
-      //   ulElement.replaceWith(answerButton)
-      // }
       questionTracker++;
+
+      // Before next question appears, "Correct!" or "Wrong!" needs to disappear.
+
+      // When the next question is written, the buttons/lis overwrite the last question lis
+      
       writeNextQuestion();
     });
   }
