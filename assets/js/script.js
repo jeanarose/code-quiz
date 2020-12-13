@@ -7,36 +7,60 @@
 var firstQuestion = {
   question: "Commonly used data types do NOT include:",
   answers: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
-  correctAnswer: "3. alerts"
+  correctAnswer: "3. alerts",
 };
 
 var secondQuestion = {
   question: "The condition in an if / else statement is enclosed within ____.",
-  answers: ["1. quotes", "2. curly brackets","3. parentheses", "4. square brackets"],
-  correctAnswer: "3. parentheses"
-}
+  answers: [
+    "1. quotes",
+    "2. curly brackets",
+    "3. parentheses",
+    "4. square brackets",
+  ],
+  correctAnswer: "3. parentheses",
+};
 
 var thirdQuestion = {
   question: "Arrays in JavaScript can be used to store ____.",
-  answers: ["1. numbers and strings","2. other arrays","3. booleans","4. all of the above"],
-  correctAnswer: "4. all of the above"
-}
+  answers: [
+    "1. numbers and strings",
+    "2. other arrays",
+    "3. booleans",
+    "4. all of the above",
+  ],
+  correctAnswer: "4. all of the above",
+};
 
 var fourthQuestion = {
-  question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-  answers: ["1. JavaScript","2. terminal / bash", "3. for loops", "4. console.log"],
-  correctAnswer: "4. console.log"
-}
+  question:
+    "A very useful tool used during development and debugging for printing content to the debugger is:",
+  answers: [
+    "1. JavaScript",
+    "2. terminal / bash",
+    "3. for loops",
+    "4. console.log",
+  ],
+  correctAnswer: "4. console.log",
+};
 
 var fifthQuestion = {
-  question: "String values must be enclosed within ____ when being assigned to variables.",
-  answers: ["1. commas", "2. curly brackets","3. quotes","4. parentheses"],
-  correctAnswer: "3. quotes"
-}
+  question:
+    "String values must be enclosed within ____ when being assigned to variables.",
+  answers: ["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
+  correctAnswer: "3. quotes",
+};
 
+var questionsArray = [
+  firstQuestion,
+  secondQuestion,
+  thirdQuestion,
+  fourthQuestion,
+  fifthQuestion,
+];
+
+// Question index tracker
 var questionTracker = 0;
-
-var questionsArray = [firstQuestion, secondQuestion, thirdQuestion, fourthQuestion, fifthQuestion];
 
 // Variables that hold existing elements.
 var startButton = document.querySelector("button");
@@ -44,8 +68,9 @@ var headingDisplay = document.querySelector("h1");
 var paragraphDisplay = document.querySelector("p");
 var ulElement = document.getElementById("answer-choices");
 var outcomeDisplay = document.querySelector("#outcome");
+var hrElement = document.querySelector("hr");
 
-// Function for 'Start Button'
+// Function for to start the quiz on the click of the Start Button
 function startQuiz(event) {
   event.preventDefault();
 
@@ -55,17 +80,18 @@ function startQuiz(event) {
   paragraphDisplay.textContent = "";
 
   // Remove Start Quiz button from page.
-  startButton.setAttribute("style", "display:none");
+  startButton.setAttribute("style", "display: none");
 
   // Writes the next question
   writeNextQuestion();
 }
+
+// Function that writes the next question
 function writeNextQuestion() {
-  // Add horizontal line
-  //  if (event.target.matches("button")) {
-  //   outcomeDisplay.setAttribute("style", "display: block");
-  // }
   for (var i = 0; i < questionsArray[questionTracker].answers.length; i++) {
+    // Change question/heading display
+    headingDisplay.textContent = questionsArray[questionTracker].question;
+
     // Create li and append it to ul
     var liElement = document.createElement("li");
     liElement.textContent = "";
@@ -77,23 +103,24 @@ function writeNextQuestion() {
     answerButton.textContent = questionsArray[questionTracker].answers[i];
     liElement.append(answerButton);
 
-    // Check if the answer is correct
+    // Check if the answer is correct and display "Correct!" or "Wrong!"
     answerButton.addEventListener("click", function (event) {
       if (
         event.target.textContent ===
         questionsArray[questionTracker].correctAnswer
       ) {
         var timedCorrectDisplay = function () {
-          outcomeDisplay.setAttribute("style", "display: block");
+          hrElement.setAttribute("style", "display: block");
           var correctDisplay = document.createElement("p");
           correctDisplay.textContent = "Correct!";
           outcomeDisplay.append(correctDisplay);
+
           console.log("You clicked the right answer");
         };
         setTimeout(timedCorrectDisplay, 10);
       } else {
         var timedWrongDisplay = function () {
-          outcomeDisplay.setAttribute("style", "display: block");
+          hrElement.setAttribute("style", "display: block");
           var wrongDisplay = document.createElement("p");
           wrongDisplay.textContent = "Wrong!";
           outcomeDisplay.append(wrongDisplay);
@@ -101,6 +128,10 @@ function writeNextQuestion() {
         };
         setTimeout(timedWrongDisplay, 10);
       }
+      // Remove/replace any existing 'li's
+      //  questionsArray[questionTracker].answers.splice(0, 4,questionsArray[questionTracker++].answers[i++])
+      questionTracker++;
+      writeNextQuestion();
     });
   }
 }

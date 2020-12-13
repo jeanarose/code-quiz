@@ -8,8 +8,11 @@ ul {
     margin-left: -40px;
 }
 
-#outcome {
+hr {
     display: none;
+}
+
+#outcome {
     text-align: left;
 }
 
