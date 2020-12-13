@@ -125,8 +125,11 @@ function startQuiz(event) {
 
 // Function that writes the next question
 function writeNextQuestion() {
+  // Empty existing ul
+  ulElement.innerHTML = "";
+
   for (var i = 0; i < questionsArray[questionTracker].answers.length; i++) {
-    // Change question/heading display
+    // Change question display
     questionDisplay.textContent = questionsArray[questionTracker].question;
 
     // Create li and append it to ul
@@ -152,7 +155,8 @@ function writeNextQuestion() {
         wrongDisplayTimer();
       }
     
-      // When the next question is written, the buttons/lis overwrite the last question lis
+      // When the next question is written, the buttons/lis overwrite the last question lis/ul
+          
 
       // Take user to the next question
       questionTracker++;
