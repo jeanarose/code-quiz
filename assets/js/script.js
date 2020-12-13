@@ -112,20 +112,13 @@ function writeNextQuestion() {
       ) {
         var timedCorrectDisplay = function () {
           hrElement.setAttribute("style", "display: block");
-          var correctDisplay = document.createElement("p");
-          correctDisplay.textContent = "Correct!";
-          outcomeDisplay.append(correctDisplay);
-
-          console.log("You clicked the right answer");
+          outcomeDisplay.textContent = "Correct!";
         };
         setTimeout(timedCorrectDisplay, 10);
       } else {
         var timedWrongDisplay = function () {
           hrElement.setAttribute("style", "display: block");
-          var wrongDisplay = document.createElement("p");
-          wrongDisplay.textContent = "Wrong!";
-          outcomeDisplay.append(wrongDisplay);
-          console.log("You clicked the wrong answer");
+          outcomeDisplay.textContent = "Wrong!";
         };
         setTimeout(timedWrongDisplay, 10);
       }

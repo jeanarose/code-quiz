@@ -12,8 +12,6 @@ hr {
     display: none;
 }
 
-
-
 .container {
     margin-top: 100px;
     width: 60%;
@@ -33,6 +31,8 @@ hr {
 
 #outcome {
     text-align: left;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 #question {

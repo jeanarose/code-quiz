@@ -50,8 +50,8 @@
           <button type="button" class="btn">Start Quiz</button>
         </div>
       </div>
-      <!-- Div that holds the outcome content (whether the user got the question right or wrong) -->
-      <div id="next-question" >
+      <!-- Next question section to append to -->
+      <section id="next-question" >
         <div class="row">
           <div class="col-sm-12">
             <!-- Question -->
@@ -64,13 +64,18 @@
             <ul id="answer-choices"></ul>
           </div>
         </div>
-        <div id="outcome" class="row">
+        <div class="row">
           <div class="col-sm-12">
             <!-- Horizontal Line -->
             <hr />
           </div>
         </div> 
-      </div>
+        <div class="row" id="outcome">
+          <div class="col-sm-12">
+            <p></p>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="./assets/js/script.js"></script>
   </body>
