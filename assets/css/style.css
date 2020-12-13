@@ -12,9 +12,7 @@ hr {
     display: none;
 }
 
-#outcome {
-    text-align: left;
-}
+
 
 .container {
     margin-top: 100px;
@@ -31,4 +29,12 @@ hr {
 .btn:hover {
     background-color: #250e43;
     color: white;
+}
+
+#outcome {
+    text-align: left;
+}
+
+#question {
+    text-align: left;
 }

@@ -41,9 +41,7 @@
             limit. Keep in mind that the incorrect answers will penalize your
             scoretime by ten seconds!
           </p>
-          <div>
-            <ul id="answer-choices"></ul>
-          </div>
+          
         </div>
       </div>
       <!-- Start Button -->
@@ -53,9 +51,25 @@
         </div>
       </div>
       <!-- Div that holds the outcome content (whether the user got the question right or wrong) -->
-      <div>
-        <hr />
-        <p id="outcome"></p>
+      <div id="next-question" >
+        <div class="row">
+          <div class="col-sm-12">
+            <!-- Question -->
+            <h1 id="question"></h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <!-- Answer choices ul element -->
+            <ul id="answer-choices"></ul>
+          </div>
+        </div>
+        <div id="outcome" class="row">
+          <div class="col-sm-12">
+            <!-- Horizontal Line -->
+            <hr />
+          </div>
+        </div> 
       </div>
     </main>
     <script src="./assets/js/script.js"></script>

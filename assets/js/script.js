@@ -69,15 +69,16 @@ var paragraphDisplay = document.querySelector("p");
 var ulElement = document.getElementById("answer-choices");
 var outcomeDisplay = document.querySelector("#outcome");
 var hrElement = document.querySelector("hr");
+var questionDisplay = document.getElementById("question");
 
 // Function for to start the quiz on the click of the Start Button
 function startQuiz(event) {
   event.preventDefault();
 
   // Change heading to display question and remove paragraph text.
-  headingDisplay.textContent = firstQuestion.question;
-  headingDisplay.setAttribute("style", "text-align: left");
-  paragraphDisplay.textContent = "";
+  headingDisplay.setAttribute("style", "display: none");
+  questionDisplay.textContent = firstQuestion.question;
+  paragraphDisplay.setAttribute("style", "display: none");
 
   // Remove Start Quiz button from page.
   startButton.setAttribute("style", "display: none");
@@ -90,7 +91,7 @@ function startQuiz(event) {
 function writeNextQuestion() {
   for (var i = 0; i < questionsArray[questionTracker].answers.length; i++) {
     // Change question/heading display
-    headingDisplay.textContent = questionsArray[questionTracker].question;
+    questionDisplay.textContent = questionsArray[questionTracker].question;
 
     // Create li and append it to ul
     var liElement = document.createElement("li");
