@@ -110,20 +110,16 @@ function writeNextQuestion() {
         event.target.textContent ===
         questionsArray[questionTracker].correctAnswer
       ) {
-        var timedCorrectDisplay = function () {
           hrElement.setAttribute("style", "display: block");
           outcomeDisplay.textContent = "Correct!";
-        };
-        setTimeout(timedCorrectDisplay, 10);
       } else {
-        var timedWrongDisplay = function () {
           hrElement.setAttribute("style", "display: block");
           outcomeDisplay.textContent = "Wrong!";
-        };
-        setTimeout(timedWrongDisplay, 10);
       }
-      // Remove/replace any existing 'li's
-      //  questionsArray[questionTracker].answers.splice(0, 4,questionsArray[questionTracker++].answers[i++])
+      // Replace button content
+      // for(var i = 0; i < questionsArray[questionTracker].answers.length;i++){
+      //   ulElement.replaceWith(answerButton)
+      // }
       questionTracker++;
       writeNextQuestion();
     });

@@ -33,6 +33,7 @@ hr {
     text-align: left;
     padding-right: 15px;
     padding-left: 15px;
+    animation: show 1s;
 }
 
 #question {
