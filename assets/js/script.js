@@ -153,14 +153,30 @@ function writeNextQuestion() {
       } else {
         hrElement.setAttribute("style", "display: block");
         wrongDisplayTimer();
-      }
-    
-      // When the next question is written, the buttons/lis overwrite the last question lis/ul
-          
+      }          
 
-      // Take user to the next question
-      questionTracker++;
-      writeNextQuestion();
+      // Take user to the next question after one second?
+      function nextQuestionTimer() {
+        var timeLeft = 5;
+      
+        var timeInterval = setInterval(function() {
+          
+          timeLeft--;
+      
+          if (timeLeft === 0) {
+            questionTracker++;
+            writeNextQuestion();
+          }
+      
+        }, 100);
+      }
+      nextQuestionTimer();
+     
+      
+      // Open highscores html
+      // if(questionTracker > questionsArray.length){
+      //   window.open("./highscores.html")
+      // }
     });
   }
 }
