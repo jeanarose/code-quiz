@@ -75,8 +75,10 @@ function outcomeDisplayTimer() {
     event.target.textContent === questionsArray[questionTracker].correctAnswer
   ) {
     outcomeDisplay.textContent = "Correct!";
+    numOfCorrect++;
   } else {
     outcomeDisplay.textContent = "Wrong!";
+    numOfWrong++;
   }
   var timeInterval = setTimeout(function () {
     hrElement.setAttribute("style", "display: none");
@@ -147,13 +149,6 @@ function writeNextQuestion() {
     // Check if the answer is correct and display "Correct!" or "Wrong!" and display for 1 second.
     answerButton.addEventListener("click", function (event) {
       outcomeDisplayTimer();
-      if (
-        event.target.textContent === questionsArray[questionTracker].correctAnswer
-      ) {
-        numOfCorrect++;
-      } else {
-        numOfWrong++;
-      }
 
       // Take user to the next question after the previous question disappears
       function nextQuestionTimer() {
