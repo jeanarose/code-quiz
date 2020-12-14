@@ -1,7 +1,7 @@
 // Variables that hold existing elements.
 var startPage = document.getElementById("start-page");
 var questionPage = document.getElementById("question-page");
-var completedQuizPage = document.getElementById("completed-page");
+var completedQuizPage = document.getElementById("completed-quiz");
 var startButton = document.querySelector("button");
 var headingDisplay = document.querySelector("h1");
 var paragraphDisplay = document.querySelector("p");
@@ -92,8 +92,8 @@ function outcomeDisplayTimer() {
 // Function that brings the user to the enter initials page
 function enterInitials() {
   // Replace what's on the page with the All Done page
-  // questionPage.innerHTML = "";
-  // completedQuizPage.setAttribute("style", "display: block");
+  questionPage.innerHTML = "";
+  completedQuizPage.setAttribute("style", "display: block");
   alert("Enter initials!");
 }
 
@@ -115,7 +115,7 @@ function writeNextQuestion() {
   ulElement.innerHTML = "";
 
   if (questionTracker === questionsArray.length) {
-    enterInitials();
+    return enterInitials();
   }
 
   for (var i = 0; i < questionsArray[questionTracker].answers.length; i++) {
