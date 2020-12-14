@@ -87,8 +87,7 @@ function outcomeDisplayTimer() {
 
 // Click submit > create an object with initials, score, and time left
 // push object to the scores array
-// Stringify array
-// store in local storage
+
 // redirect to highscores page
 // parse array from local storage
 // loop through it on the page
@@ -98,7 +97,7 @@ var highScores = [];
 function enterInitials() {
   questionPage.innerHTML = "";
   completedQuizPage.setAttribute("style", "display: block");
-  var scoreDisplay = (numOfCorrect * questionValue);
+  var scoreDisplay = numOfCorrect * questionValue;
   scoreSpan.textContent = scoreDisplay + "%";
   submitButton.addEventListener("click", function () {
     var highScoresObject = {
@@ -107,7 +106,10 @@ function enterInitials() {
       timeLeft: "",
     };
     highScores.push(highScoresObject);
-    // Open highscores window
+    // Stringify array
+    stringifiedHighscoresArray = JSON.stringify(highScores);
+    // store in local storage
+    window.localStorage.setItem(stringifiedHighscoresArray);
     window.open("./highscores.html");
   });
 }
