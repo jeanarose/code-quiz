@@ -60,38 +60,40 @@ var questionsArray = [
 // Question index tracker
 var questionTracker = 0;
 
-// Displays "Correct!" for one second if the user answers correctly
-function correctDisplayTimer() {
-  var timeLeft = 5;
-
-  var timeInterval = setInterval(function () {
-    hrElement.setAttribute("style", "display: block");
+// Displays "Correct!" or "Wrong!" for one second depending on what the user chose
+function outcomeDisplayTimer() {
+  hrElement.setAttribute("style", "display: block");
+  if (
+    event.target.textContent === questionsArray[questionTracker].correctAnswer
+  ) {
     outcomeDisplay.textContent = "Correct!";
-    timeLeft--;
-
-    if (timeLeft === 0) {
-      hrElement.setAttribute("style", "display: none");
-      outcomeDisplay.textContent = "";
-      clearInterval(timeInterval);
-    }
-  }, 100);
+  } else {
+    outcomeDisplay.textContent = "Wrong!";
+  }
+  var timeInterval = setTimeout(function () {
+    hrElement.setAttribute("style", "display: none");
+    outcomeDisplay.textContent = "";
+    clearInterval(timeInterval);
+  }, 500);
 }
 
-// Displays "Wrong!" for one second if the user answers incorrectly
-function wrongDisplayTimer() {
-  var timeLeft = 5;
+// Need an event listener for the submit button on the al done page
+// Take the value of the input (initials) which will be one of the objects key values (when the user hits submit, you're going to form the object "Highscores")
+// the other key value will be whatever time is left
+// one key will be the initials, the other key will be the score
+// Click submit > create an object with initials, score, and time left
+// push object to the scores array
+// Stringify array
+// store in local storage
+// redirect to highscores page
+// parse array from local storage
+// loop through it on the page
 
-  var timeInterval = setInterval(function () {
-    hrElement.setAttribute("style", "display: block");
-    outcomeDisplay.textContent = "Wrong!";
-    timeLeft--;
-
-    if (timeLeft === 0) {
-      hrElement.setAttribute("style", "display: none");
-      outcomeDisplay.textContent = "";
-      clearInterval(timeInterval);
-    }
-  }, 100);
+// Function that brings the user to the enter initials page
+function enterInitials() {
+  // Replace what's on the page with the All Done page
+  questionPage.innerHTML = "";
+  completedQuizPage.setAttribute("style", "display: block");
 }
 
 // Function that starts quiz
@@ -111,6 +113,10 @@ function writeNextQuestion() {
   // Empty existing ul
   ulElement.innerHTML = "";
 
+  if (questionTracker === questionsArray.length) {
+    enterInitials();
+  }
+
   for (var i = 0; i < questionsArray[questionTracker].answers.length; i++) {
     // Change question display to the next question
     questionDisplay.textContent = questionsArray[questionTracker].question;
@@ -128,36 +134,17 @@ function writeNextQuestion() {
 
     // Check if the answer is correct and display "Correct!" or "Wrong!" and display for 1 second.
     answerButton.addEventListener("click", function (event) {
-      if (
-        event.target.textContent ===
-        questionsArray[questionTracker].correctAnswer
-      ) {
-        correctDisplayTimer();
-      } else {
-        hrElement.setAttribute("style", "display: block");
-        wrongDisplayTimer();
-      }
+      outcomeDisplayTimer();
 
-      // Take user to the next question after one second (after the previous question disappears)
+      // Take user to the next question after the previous question disappears
       function nextQuestionTimer() {
-        var timeLeft = 5;
-
-        var timeInterval = setInterval(function () {
-          timeLeft--;
-
-          if (timeLeft === 0) {
-            questionTracker++;
-            writeNextQuestion();
-          }
-        }, 100);
+        var timeInterval = setTimeout(function () {
+          questionTracker++;
+          writeNextQuestion();
+          clearInterval(timeInterval);
+        }, 500);
       }
       nextQuestionTimer();
-
-      // 'All done' page appears
-      // if(questionTracker.value > questionsArray.length){
-      //   questionPage.setAttribute("style","display:none")
-      //   completedQuizPage.setAttribute("style","display: block");
-      // }
     });
   }
 }
