@@ -3,12 +3,15 @@ var startPage = document.getElementById("start-page");
 var questionPage = document.getElementById("question-page");
 var completedQuizPage = document.getElementById("completed-quiz");
 var startButton = document.querySelector("button");
+var submitButton = document.getElementById("submit-button");
+var initialsInput = document.getElementById("initials");
 var headingDisplay = document.querySelector("h1");
 var paragraphDisplay = document.querySelector("p");
 var outcomeDisplay = document.querySelector("#outcome");
 var questionDisplay = document.getElementById("question");
 var ulElement = document.getElementById("answer-choices");
 var hrElement = document.querySelector("hr");
+var scoreSpan = document.getElementById("user-score");
 
 // Question objects
 var questionsArray = [
@@ -60,9 +63,14 @@ var questionsArray = [
 // Question index tracker
 var questionTracker = 0;
 
+var questionValue = 100 / questionsArray.length;
+var numOfCorrect = 0;
+var numOfWrong = 0;
 // Displays "Correct!" or "Wrong!" for one second depending on what the user chose
 function outcomeDisplayTimer() {
   hrElement.setAttribute("style", "display: block");
+  var scoreDisplay = (numOfCorrect * questionValue);
+  scoreSpan.textContent = scoreDisplay + "%";
   if (
     event.target.textContent === questionsArray[questionTracker].correctAnswer
   ) {
@@ -77,10 +85,6 @@ function outcomeDisplayTimer() {
   }, 500);
 }
 
-// Need an event listener for the submit button on the al done page
-// Take the value of the input (initials) which will be one of the objects key values (when the user hits submit, you're going to form the object "Highscores")
-// the other key value will be whatever time is left
-// one key will be the initials, the other key will be the score
 // Click submit > create an object with initials, score, and time left
 // push object to the scores array
 // Stringify array
@@ -89,12 +93,19 @@ function outcomeDisplayTimer() {
 // parse array from local storage
 // loop through it on the page
 
+var highScores = [];
 // Function that brings the user to the enter initials page
 function enterInitials() {
-  // Replace what's on the page with the All Done page
   questionPage.innerHTML = "";
   completedQuizPage.setAttribute("style", "display: block");
-  alert("Enter initials!");
+  submitButton.addEventListener("click", function () {
+    var highScoresObject = {
+      initials: initialsInput.value,
+      score: "",
+      timeLeft: "",
+    };
+    highScores.push(highScoresObject);
+  });
 }
 
 // Function that starts quiz
@@ -136,6 +147,13 @@ function writeNextQuestion() {
     // Check if the answer is correct and display "Correct!" or "Wrong!" and display for 1 second.
     answerButton.addEventListener("click", function (event) {
       outcomeDisplayTimer();
+      if (
+        event.target.textContent === questionsArray[questionTracker].correctAnswer
+      ) {
+        numOfCorrect++;
+      } else {
+        numOfWrong++;
+      }
 
       // Take user to the next question after the previous question disappears
       function nextQuestionTimer() {
