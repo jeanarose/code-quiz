@@ -92,8 +92,9 @@ function outcomeDisplayTimer() {
 // Function that brings the user to the enter initials page
 function enterInitials() {
   // Replace what's on the page with the All Done page
-  questionPage.innerHTML = "";
-  completedQuizPage.setAttribute("style", "display: block");
+  // questionPage.innerHTML = "";
+  // completedQuizPage.setAttribute("style", "display: block");
+  alert("Enter initials!");
 }
 
 // Function that starts quiz

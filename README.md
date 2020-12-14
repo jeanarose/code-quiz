@@ -24,6 +24,8 @@
 ## Credits
 The following people contributed to the success of this application. You can view their GitHub profiles by clicking on their names:
 * [Jonathan Watson](https://github.com/jonathanjwatson)
+* [Pete Kriengsiri](https://github.com/pkriengsiri)
+* [Peter Colella](https://github.com/petercolella)
 
 The following sites were used to find code to make Code Quiz function properly:
 * [Stack Overflow: ](https://stackoverflow.com/questions/1115310/how-can-i-add-a-class-to-a-dom-element-in-javascript)Add a class name using DOM manipulation
