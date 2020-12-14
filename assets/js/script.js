@@ -69,8 +69,6 @@ var numOfWrong = 0;
 // Displays "Correct!" or "Wrong!" for one second depending on what the user chose
 function outcomeDisplayTimer() {
   hrElement.setAttribute("style", "display: block");
-  var scoreDisplay = (numOfCorrect * questionValue);
-  scoreSpan.textContent = scoreDisplay + "%";
   if (
     event.target.textContent === questionsArray[questionTracker].correctAnswer
   ) {
@@ -100,13 +98,17 @@ var highScores = [];
 function enterInitials() {
   questionPage.innerHTML = "";
   completedQuizPage.setAttribute("style", "display: block");
+  var scoreDisplay = (numOfCorrect * questionValue);
+  scoreSpan.textContent = scoreDisplay + "%";
   submitButton.addEventListener("click", function () {
     var highScoresObject = {
       initials: initialsInput.value,
-      score: "",
+      score: scoreDisplay + "%",
       timeLeft: "",
     };
     highScores.push(highScoresObject);
+    // Open highscores window
+    window.open("./highscores.html");
   });
 }
 
