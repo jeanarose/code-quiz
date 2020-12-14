@@ -155,7 +155,7 @@ function startQuiz(event) {
 
   // Remove start page content and display first question
   startPage.innerHTML = "";
-  questionDisplay.textContent = firstQuestion.question;
+  questionDisplay.textContent = questionsArray[0].question;
 
   // Writes the next question
   writeNextQuestion();
