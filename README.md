@@ -1,14 +1,16 @@
 # Code Quiz
+[![GitHub issues](https://img.shields.io/github/issues/jeanarose/code-quiz)](https://github.com/jeanarose/code-quiz/issues)
 
 ## Description
-Code Quiz was designed to be a dynamic JavaScript application. The quiz has several main functions:
-* tells the user if the answer was right or wrong each time
+[Code Quiz](https://jeanarose.github.io/code-quiz/) is here to test users' coding knowledge. At the start of a button, the user is given a timed quiz that displays one question at a time. Code Quiz was designed to be a dynamic JavaScript application. The quiz has several main functions:
+* Tells the user if the answer was right or wrong each time
 * Deducts 10 seconds if the user answered incorrectly
 * Stores the user's score, initials, and time left into local storage
 * Displays the users highscores on a separate page
+Of crucial importance was to make this application dynamic and to hard code as little as possible. Dynamic functionality was achieved using functions, event listeners, for loops, and stored variables to perform DOM manipulation. 
 
 ## Code Quiz
-
+![Screenshot of Code Quiz webpage.](assets/images/code-quiz-screenshot.png)
 ## Table of Contents 
 * [Installation](#installation)
 * [Usage](#usage)
