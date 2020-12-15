@@ -182,12 +182,23 @@ function enterInitials() {
     };
     highScores.push(highScoresObject);
     // Stringify array
-    var stringifiedHighscoresArray = JSON.stringify(highScores);
+    var stringifiedHighScoresArray = JSON.stringify(highScores);
     // Set Item
-    localStorage.setItem("highscores",stringifiedHighscoresArray);
-    // Open highscores page
-    // window.open("./highscores.html");
+    localStorage.setItem("highscores", stringifiedHighScoresArray);
+    writeHighScores();
   });
+}
+
+function writeHighScores() {
+  // Open highscores page
+  window.open("./highscores.html");
+  for(var i = 0; highScores.length; i++){
+    var highScoresList = document.getElementById("list-highscores");
+    var unstringifiedHighScoresArray = JSON.parse(stringifiedHighScoresArray);
+    var addHighScore = document.createElement("p");
+    addHighScore.textContent = unstringifiedHighScoresArray;
+    highScoresList.append(addHighScore);
+  }
 }
 
 // Event listener for Start Button
