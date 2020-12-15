@@ -44,13 +44,13 @@
         // // Open highscores page
         var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
         var highScoresList = document.getElementById("list-highscores");
-        // for (var i = 0; highScores.length; i++) {
-        //   // var addHighScore = document.createElement("p");
-        //   // // addHighScore.textContent = unstringifiedHighScoresArray;
-        //   // // console.log(unstringifiedHighScoresArray)
-        //   // highScoresList.append(addHighScore);
-        //   console.log(highScores[i])
-        // }
+        for (var i = 0; i < highScores.length; i++) {
+          // var addHighScore = document.createElement("p");
+          // // addHighScore.textContent = unstringifiedHighScoresArray;
+          // // console.log(unstringifiedHighScoresArray)
+          // highScoresList.append(addHighScore);
+          console.log(highScores[i])
+        }
         console.log(highScores);
       }
       writeHighScores();
