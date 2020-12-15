@@ -166,12 +166,6 @@ function writeNextQuestion() {
   }
 }
 
-// Click submit > create an object with initials, score, and time left
-// push object to the scores array
-// redirect to highscores page
-// parse array from local storage
-// loop through it on the page
-
 // Function that brings the user to the enter initials page
 function enterInitials() {
   questionPage.innerHTML = "";
