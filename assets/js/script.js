@@ -77,26 +77,6 @@ var questionValue = 100 / questionsArray.length;
 var numOfCorrect = 0;
 var numOfWrong = 0;
 
-// Displays "Correct!" or "Wrong!" for one second depending on what the user chose
-function answer() {
-  hrElement.setAttribute("style", "display: block");
-  if (
-    event.target.textContent === questionsArray[questionTracker].correctAnswer
-  ) {
-    outcomeDisplay.textContent = "Correct!";
-    numOfCorrect++;
-  } else {
-    outcomeDisplay.textContent = "Wrong!";
-    secondsLeft--;
-    numOfWrong++;
-  }
-  var timeInterval = setTimeout(function () {
-    hrElement.setAttribute("style", "display: none");
-    outcomeDisplay.textContent = "";
-    clearInterval(timeInterval);
-  }, 500);
-}
-
 function startTimer() {
   var timeInterval = setInterval(function () {
     timerString.textContent = secondsLeft;
@@ -119,6 +99,26 @@ function startQuiz(event) {
   startTimer();
   // Writes the next question
   writeNextQuestion();
+}
+
+// Displays "Correct!" or "Wrong!" for one second depending on what the user chose
+function answer() {
+  hrElement.setAttribute("style", "display: block");
+  if (
+    event.target.textContent === questionsArray[questionTracker].correctAnswer
+  ) {
+    outcomeDisplay.textContent = "Correct!";
+    numOfCorrect++;
+  } else {
+    outcomeDisplay.textContent = "Wrong!";
+    secondsLeft = secondsLeft - 10;
+    numOfWrong++;
+  }
+  var timeInterval = setTimeout(function () {
+    hrElement.setAttribute("style", "display: none");
+    outcomeDisplay.textContent = "";
+    clearInterval(timeInterval);
+  }, 500);
 }
 
 // Function that writes the next question
