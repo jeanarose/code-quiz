@@ -1,16 +1,24 @@
-// Variables that hold existing elements.
+// Navbar variables
+var timerString = document.getElementById("timer");
+var timerStart = 75;
+
+// Start page variables
 var startPage = document.getElementById("start-page");
-var questionPage = document.getElementById("question-page");
-var completedQuizPage = document.getElementById("completed-quiz");
-var startButton = document.querySelector("button");
-var submitButton = document.getElementById("submit-button");
-var initialsInput = document.getElementById("initials");
 var headingDisplay = document.querySelector("h1");
 var paragraphDisplay = document.querySelector("p");
+var startButton = document.querySelector("button");
+
+// Question page(s) variables
+var questionPage = document.getElementById("question-page");
 var outcomeDisplay = document.querySelector("#outcome");
 var questionDisplay = document.getElementById("question");
 var ulElement = document.getElementById("answer-choices");
 var hrElement = document.querySelector("hr");
+
+// "All Done" page variables
+var completedQuizPage = document.getElementById("completed-quiz");
+var initialsInput = document.getElementById("initials");
+var submitButton = document.getElementById("submit-button");
 var scoreSpan = document.getElementById("user-score");
 
 // Question objects
@@ -118,10 +126,10 @@ function enterInitials() {
 function startQuiz(event) {
   event.preventDefault();
 
-  // Remove start page content and display first question
+  // Remove start page content, display first question, and start timer at 75 seconds
   startPage.innerHTML = "";
   questionDisplay.textContent = questionsArray[0].question;
-
+  timerString.textContent = timerStart;
   // Writes the next question
   writeNextQuestion();
 }
