@@ -56,3 +56,8 @@ a.navbar-text,.navbar-text {
 #initials, #score, #time-left {
     padding: 0px;
 }
+
+#go-back, #clear-highscores {
+    margin-left: 5px;
+    margin-right: 5px;
+}
