@@ -182,10 +182,11 @@ function enterInitials() {
     };
     highScores.push(highScoresObject);
     // Stringify array
-    stringifiedHighscoresArray = JSON.stringify(highScores);
-    // store in local storage
-    window.localStorage.setItem(stringifiedHighscoresArray);
-    window.open("./highscores.html");
+    var stringifiedHighscoresArray = JSON.stringify(highScores);
+    // Set Item
+    localStorage.setItem("highscores",stringifiedHighscoresArray);
+    // Open highscores page
+    // window.open("./highscores.html");
   });
 }
 
