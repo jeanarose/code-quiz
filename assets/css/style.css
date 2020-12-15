@@ -33,6 +33,11 @@ a.navbar-text,.navbar-text {
     color: white;
 }
 
+.user-highscore {
+    background-color: rgb(235, 218, 235);
+    vertical-align: baseline;
+}
+
 #outcome {
     text-align: left;
     padding-right: 15px;
@@ -46,4 +51,8 @@ a.navbar-text,.navbar-text {
 #completed-quiz {
     text-align: left;
     display: none;
+}
+
+#initials, #score, #time-left {
+    padding: 0px !important;
 }

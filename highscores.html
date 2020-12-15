@@ -39,12 +39,15 @@
             <div class="row">
               <div id="initials" class="col-sm-4">
                 <!-- Initials go here -->
+                <h3>Initials</h3>
               </div>
               <div id="score" class="col-sm-4">
                 <!-- Score goes here -->
+                <h3>Score</h3>
               </div>
               <div id="time-left" class="col-sm-4">
                 <!-- Time left goes here -->
+                <h3>Time Left</h3>
               </div>
             </div>
           </div>
@@ -61,12 +64,15 @@
         for (var i = 0; i < highScores.length; i++) {
           paragraphElementInitials = document.createElement("p");
           paragraphElementInitials.textContent = highScores[i].initials;
+          paragraphElementInitials.className = "user-highscore"
           initialsDisplay.append(paragraphElementInitials)
           paragraphElementScore = document.createElement("p");
           paragraphElementScore.textContent = highScores[i].score;
+          paragraphElementScore.className = "user-highscore"
           scoreDisplay.append(paragraphElementScore);
           paragraphElementTimeLeft = document.createElement("p");
           paragraphElementTimeLeft.textContent = highScores[i].timeLeft;
+          paragraphElementTimeLeft.className = "user-highscore"
           timeLeftDisplay.append(paragraphElementTimeLeft);
         }
       }
