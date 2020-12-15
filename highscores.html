@@ -44,7 +44,10 @@
         var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
         var highScoresList = document.getElementById("list-highscores");
         for (var i = 0; i < highScores.length; i++) {
-          console.log(highScores)
+          paragraphElement = document.createElement("p");
+          paragraphElement.textContent = "";
+          highScoresList.append(paragraphElement)
+          paragraphElement.append(highScores[i].initials, "-", highScores[i].score);
         }
       }
       writeHighScores();
