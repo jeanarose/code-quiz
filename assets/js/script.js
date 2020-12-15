@@ -1,6 +1,6 @@
 // Navbar variables
 var timerString = document.getElementById("timer");
-var timerStart = 75;
+var secondsLeft = 75;
 
 // Start page variables
 var startPage = document.getElementById("start-page");
@@ -68,14 +68,17 @@ var questionsArray = [
   },
 ];
 
-// Question index tracker
-var questionTracker = 0;
+// High scores array
+var highScores = [];
 
+// Trackers
+var questionTracker = 0;
 var questionValue = 100 / questionsArray.length;
 var numOfCorrect = 0;
 var numOfWrong = 0;
+
 // Displays "Correct!" or "Wrong!" for one second depending on what the user chose
-function outcomeDisplayTimer() {
+function answer() {
   hrElement.setAttribute("style", "display: block");
   if (
     event.target.textContent === questionsArray[questionTracker].correctAnswer
@@ -84,6 +87,7 @@ function outcomeDisplayTimer() {
     numOfCorrect++;
   } else {
     outcomeDisplay.textContent = "Wrong!";
+    secondsLeft--;
     numOfWrong++;
   }
   var timeInterval = setTimeout(function () {
@@ -93,43 +97,26 @@ function outcomeDisplayTimer() {
   }, 500);
 }
 
-// Click submit > create an object with initials, score, and time left
-// push object to the scores array
+function startTimer() {
+  var timeInterval = setInterval(function () {
+    timerString.textContent = secondsLeft;
+    secondsLeft--;
 
-// redirect to highscores page
-// parse array from local storage
-// loop through it on the page
-
-var highScores = [];
-// Function that brings the user to the enter initials page
-function enterInitials() {
-  questionPage.innerHTML = "";
-  completedQuizPage.setAttribute("style", "display: block");
-  var scoreDisplay = numOfCorrect * questionValue;
-  scoreSpan.textContent = scoreDisplay + "%";
-  submitButton.addEventListener("click", function () {
-    var highScoresObject = {
-      initials: initialsInput.value,
-      score: scoreDisplay + "%",
-      timeLeft: "",
-    };
-    highScores.push(highScoresObject);
-    // Stringify array
-    stringifiedHighscoresArray = JSON.stringify(highScores);
-    // store in local storage
-    window.localStorage.setItem(stringifiedHighscoresArray);
-    window.open("./highscores.html");
-  });
+    if (timeLeft === 0) {
+      timerString.textContent = "";
+      startTimer();
+      clearInterval(timeInterval);
+    }
+  }, 1000);
 }
 
 // Function that starts quiz
 function startQuiz(event) {
   event.preventDefault();
-
-  // Remove start page content, display first question, and start timer at 75 seconds
+  // Remove start page content, display first question, and start timer
   startPage.innerHTML = "";
   questionDisplay.textContent = questionsArray[0].question;
-  timerString.textContent = timerStart;
+  startTimer();
   // Writes the next question
   writeNextQuestion();
 }
@@ -160,7 +147,7 @@ function writeNextQuestion() {
 
     // Check if the answer is correct and display "Correct!" or "Wrong!" and display for 1 second.
     answerButton.addEventListener("click", function (event) {
-      outcomeDisplayTimer();
+      answer();
 
       // Take user to the next question after the previous question disappears
       function nextQuestionTimer() {
@@ -173,6 +160,33 @@ function writeNextQuestion() {
       nextQuestionTimer();
     });
   }
+}
+
+// Click submit > create an object with initials, score, and time left
+// push object to the scores array
+// redirect to highscores page
+// parse array from local storage
+// loop through it on the page
+
+// Function that brings the user to the enter initials page
+function enterInitials() {
+  questionPage.innerHTML = "";
+  completedQuizPage.setAttribute("style", "display: block");
+  var scoreDisplay = numOfCorrect * questionValue;
+  scoreSpan.textContent = scoreDisplay + "%";
+  submitButton.addEventListener("click", function () {
+    var highScoresObject = {
+      initials: initialsInput.value,
+      score: scoreDisplay + "%",
+      timeLeft: "",
+    };
+    highScores.push(highScoresObject);
+    // Stringify array
+    stringifiedHighscoresArray = JSON.stringify(highScores);
+    // store in local storage
+    window.localStorage.setItem(stringifiedHighscoresArray);
+    window.open("./highscores.html");
+  });
 }
 
 // Event listener for Start Button
