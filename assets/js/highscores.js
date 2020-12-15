@@ -26,10 +26,16 @@ function writeHighScores() {
   writeHighScores();
 
   // Button variables
+  var goBackButton = document.getElementById("go-back");
+  var clearHighScoresButton = document.getElementById("clear-highscores");
 
   // Function for Go Back button
+  function goBack(){
+    window.history.back();
+  }
 
   // Listener for Go Back button
+  goBackButton.addEventListener("click",goBack);
 
   // Function for Clear Highscores Button
 
