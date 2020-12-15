@@ -1,11 +1,11 @@
 // Global variables
 var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
-var initialsDisplay = document.getElementById("initials");
-var scoreDisplay = document.getElementById("score");
-var timeLeftDisplay = document.getElementById("time-left");
 
 // Function that writes the highscores
 function writeHighScores() {
+  var initialsDisplay = document.getElementById("initials");
+  var scoreDisplay = document.getElementById("score");
+  var timeLeftDisplay = document.getElementById("time-left");
   for (var i = 0; i < highScores.length; i++) {
     // Create, add text to, and append paragraph with initials
     paragraphElementInitials = document.createElement("p");
@@ -42,11 +42,10 @@ goBackButton.addEventListener("click", goBack);
 
 // Function for Clear Highscores Button
 function clearHighScores() {
-  //   highScores = [];
+  var wrapper = document.getElementById("wrapper");
+  highScores = [];
   localStorage.clear();
-  paragraphElementInitials.innerHTML = "";
-  paragraphElementScore.innerHTML = "";
-  paragraphElementTimeLeft.innerHTML = "";
+  wrapper.innerHTML = "";
 }
 
 // Listener for Clear Highscores Button

@@ -1,6 +1,11 @@
 # Code Quiz
 
 ## Description
+Code Quiz was designed to be a dynamic JavaScript application. The quiz has several main functions:
+* tells the user if the answer was right or wrong each time
+* Deducts 10 seconds if the user answered incorrectly
+* Stores the user's score, initials, and time left into local storage
+* Displays the users highscores on a separate page
 
 ## Code Quiz
 
@@ -33,6 +38,8 @@ The following sites were used to find code to make Code Quiz function properly:
 * [Stack Overflow: ](https://stackoverflow.com/questions/1988514/javascript-css-how-to-add-and-remove-multiple-css-classes-to-an-element)Adding an additional class to an element using DOM manipulation
 * [W3Schools: ](https://www.w3schools.com/jsref/met_win_setinterval.asp)setInterval() method 
 * [Stack Overflow: ](https://stackoverflow.com/questions/45777585/get-value-from-input-and-store-it-to-the-object-javascript)Get value from input and store it to the object Javascript
+* [MDN: ](https://developer.mozilla.org/en-US/docs/Web/API/Storage/clear)localStorage.clear() function
+* [W3Schools: ](https://www.w3schools.com/jsref/met_his_back.asp)History back() method
 
 ## License
 MIT License
