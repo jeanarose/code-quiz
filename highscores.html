@@ -47,36 +47,18 @@
               </div>
               <div id="time-left" class="col-sm-4">
                 <!-- Time left goes here -->
-                <h3>Time Left</h3>
+                <h3>Seconds Left</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <button>Go Back</button><button>Clear Highscores</button>
               </div>
             </div>
           </div>
         </div>
       </section>
     </main>
-    <script>
-      function writeHighScores() {
-        var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
-        var highScoresList = document.getElementById("list-highscores");
-        var initialsDisplay = document.getElementById("initials");
-        var scoreDisplay = document.getElementById("score");
-        var timeLeftDisplay = document.getElementById("time-left");
-        for (var i = 0; i < highScores.length; i++) {
-          paragraphElementInitials = document.createElement("p");
-          paragraphElementInitials.textContent = highScores[i].initials;
-          paragraphElementInitials.className = "user-highscore"
-          initialsDisplay.append(paragraphElementInitials)
-          paragraphElementScore = document.createElement("p");
-          paragraphElementScore.textContent = highScores[i].score;
-          paragraphElementScore.className = "user-highscore"
-          scoreDisplay.append(paragraphElementScore);
-          paragraphElementTimeLeft = document.createElement("p");
-          paragraphElementTimeLeft.textContent = highScores[i].timeLeft;
-          paragraphElementTimeLeft.className = "user-highscore"
-          timeLeftDisplay.append(paragraphElementTimeLeft);
-        }
-      }
-      writeHighScores();
-    </script>
+    <script src="./assets/js/highscores.js"></script>
   </body>
 </html>
