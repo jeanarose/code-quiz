@@ -68,8 +68,9 @@ var questionsArray = [
   },
 ];
 
-// High scores array
-var highScores = [];
+// High scores arrays
+var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
+// var unstringifiedHighScoresArray = JSON.parse(stringifiedHighScoresArray);
 
 // Trackers
 var questionTracker = 0;
@@ -172,6 +173,7 @@ function writeNextQuestion() {
 function enterInitials() {
   questionPage.innerHTML = "";
   completedQuizPage.setAttribute("style", "display: block");
+  // timerString.textContent = "0";
   var scoreDisplay = numOfCorrect * questionValue;
   scoreSpan.textContent = scoreDisplay + "%";
   submitButton.addEventListener("click", function () {
@@ -181,25 +183,12 @@ function enterInitials() {
       timeLeft: "",
     };
     highScores.push(highScoresObject);
-    // Stringify array
-    var stringifiedHighScoresArray = JSON.stringify(highScores);
-    // Set Item
-    localStorage.setItem("highscores", stringifiedHighScoresArray);
-    writeHighScores();
+    localStorage.setItem("highscores", JSON.stringify(highScores));
+    // window.open("./highscores.html")
   });
 }
 
-function writeHighScores() {
-  // Open highscores page
-  window.open("./highscores.html");
-  for(var i = 0; highScores.length; i++){
-    var highScoresList = document.getElementById("list-highscores");
-    var unstringifiedHighScoresArray = JSON.parse(stringifiedHighScoresArray);
-    var addHighScore = document.createElement("p");
-    addHighScore.textContent = unstringifiedHighScoresArray;
-    highScoresList.append(addHighScore);
-  }
-}
+
 
 // Event listener for Start Button
 startButton.addEventListener("click", startQuiz);
