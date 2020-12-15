@@ -76,11 +76,13 @@ var questionTracker = 0;
 var questionValue = 100 / questionsArray.length;
 var numOfCorrect = 0;
 var numOfWrong = 0;
+var timeInterval;
 
 function startTimer() {
-  var timeInterval = setInterval(function () {
-    timerString.textContent = secondsLeft;
+  timerString.textContent = secondsLeft;
+  timeInterval = setInterval(function () {
     secondsLeft--;
+    timerString.textContent = secondsLeft;
 
     if (secondsLeft === 0) {
       timerString.textContent = "0";
@@ -127,6 +129,8 @@ function writeNextQuestion() {
   ulElement.innerHTML = "";
 
   if (questionTracker === questionsArray.length) {
+    
+    clearInterval(timeInterval);
     return enterInitials();
   }
 
@@ -172,23 +176,18 @@ function writeNextQuestion() {
 function enterInitials() {
   questionPage.innerHTML = "";
   completedQuizPage.setAttribute("style", "display: block");
-  // Stop timer 
-  // ...
-  //
   var scoreDisplay = numOfCorrect * questionValue;
   scoreSpan.textContent = scoreDisplay + "%";
   submitButton.addEventListener("click", function () {
     var highScoresObject = {
       initials: initialsInput.value,
       score: scoreDisplay + "%",
-      timeLeft: "",
+      timeLeft: secondsLeft,
     };
     highScores.push(highScoresObject);
     localStorage.setItem("highscores", JSON.stringify(highScores));
   });
 }
-
-
 
 // Event listener for Start Button
 startButton.addEventListener("click", startQuiz);

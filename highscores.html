@@ -35,7 +35,19 @@
           </div>
         </div>
         <div class="row">
-          <div id="list-highscores" class="col-sm-12"></div>
+          <div id="list-highscores" class="col-sm-12">
+            <div class="row">
+              <div id="initials" class="col-sm-4">
+                <!-- Initials go here -->
+              </div>
+              <div id="score" class="col-sm-4">
+                <!-- Score goes here -->
+              </div>
+              <div id="time-left" class="col-sm-4">
+                <!-- Time left goes here -->
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -43,11 +55,19 @@
       function writeHighScores() {
         var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
         var highScoresList = document.getElementById("list-highscores");
+        var initialsDisplay = document.getElementById("initials");
+        var scoreDisplay = document.getElementById("score");
+        var timeLeftDisplay = document.getElementById("time-left");
         for (var i = 0; i < highScores.length; i++) {
-          paragraphElement = document.createElement("p");
-          paragraphElement.textContent = "";
-          highScoresList.append(paragraphElement)
-          paragraphElement.append(highScores[i].initials, "-", highScores[i].score);
+          paragraphElementInitials = document.createElement("p");
+          paragraphElementInitials.textContent = highScores[i].initials;
+          initialsDisplay.append(paragraphElementInitials)
+          paragraphElementScore = document.createElement("p");
+          paragraphElementScore.textContent = highScores[i].score;
+          scoreDisplay.append(paragraphElementScore);
+          paragraphElementTimeLeft = document.createElement("p");
+          paragraphElementTimeLeft.textContent = highScores[i].timeLeft;
+          timeLeftDisplay.append(paragraphElementTimeLeft);
         }
       }
       writeHighScores();
