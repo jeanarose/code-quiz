@@ -3,14 +3,19 @@
 
 ## Description
 [Code Quiz](https://jeanarose.github.io/code-quiz/) is here to test users' coding knowledge. At the start of a button, the user is given a timed quiz that displays one question at a time. Code Quiz was designed to be a dynamic JavaScript application. The quiz has several main functions:
-* Tells the user if the answer was right or wrong each time
-* Deducts 10 seconds if the user answered incorrectly
+* Tells the user if they answered was correctly or incorrectly each time
+* Deducts ten seconds if the user answered incorrectly
 * Stores the user's score, initials, and time left into local storage
 * Displays the users highscores on a separate page
-Of crucial importance was to make this application dynamic and to hard code as little as possible. Dynamic functionality was achieved using functions, event listeners, for loops, and stored variables to perform DOM manipulation. 
+
+Of crucial importance was to make this application dynamic, hard coding as little as possible. Dynamic functionality was achieved using functions, event listeners, for loops, and stored variables to perform DOM manipulation. 
+
+View the deployed application here: https://jeanarose.github.io/code-quiz/
 
 ## Code Quiz
+
 ![Screenshot of Code Quiz webpage.](assets/images/code-quiz-screenshot.png)
+
 ## Table of Contents 
 * [Installation](#installation)
 * [Usage](#usage)
@@ -23,10 +28,12 @@ Of crucial importance was to make this application dynamic and to hard code as l
 2. Click the green **Code** button.
 3. Copy the SSH key.
 4. In your terminal, go into the directory that you want to host Code Quiz. 
-5. Use the command **git clone [insert SSH key URL]** and click **Enter** (Requires Git).
+5. Use the command **git clone [insert SSH key URL]** and click **Enter** (*Requires Git*).
 
 ## Usage
+This quiz can be used to test and improve your coding knowledge by beating your highscore, learning the answers to each question, and reducing the amount of time it takes to complete the quiz.
 
+![Screenshot of Highscores webpage.](assets/images/highscores-screenshot.png)
 
 ## Credits
 The following people contributed to the success of this application. You can view their GitHub profiles by clicking on their names:
