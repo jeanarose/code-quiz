@@ -102,10 +102,10 @@ function startTimer() {
     timerString.textContent = secondsLeft;
     secondsLeft--;
 
-    if (timeLeft === 0) {
-      timerString.textContent = "";
-      startTimer();
+    if (secondsLeft === 0) {
+      timerString.textContent = "0";
       clearInterval(timeInterval);
+      enterInitials();
     }
   }, 1000);
 }
