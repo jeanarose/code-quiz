@@ -1,6 +1,7 @@
 // Navbar variables
 var timerString = document.getElementById("timer");
 var secondsLeft = 75;
+var timeInterval;
 
 // Start page variables
 var startPage = document.getElementById("start-page");
@@ -21,7 +22,7 @@ var initialsInput = document.getElementById("initials");
 var submitButton = document.getElementById("submit-button");
 var scoreSpan = document.getElementById("user-score");
 
-// Question objects
+// Array of objects that holds the questions, answers, and correct answer
 var questionsArray = [
   {
     question: "Commonly used data types do NOT include:",
@@ -71,13 +72,13 @@ var questionsArray = [
 // High scores arrays
 var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
 
-// Trackers
+// Trackers / values
 var questionTracker = 0;
 var questionValue = 100 / questionsArray.length;
 var numOfCorrect = 0;
 var numOfWrong = 0;
-var timeInterval;
 
+// Function that starts the timer on the first question 
 function startTimer() {
   timerString.textContent = secondsLeft;
   timeInterval = setInterval(function () {
@@ -168,10 +169,13 @@ function writeNextQuestion() {
 
 // Function that brings the user to the enter initials page
 function enterInitials() {
+  // Clear contents of page and replace with All Done page
   questionPage.innerHTML = "";
   completedQuizPage.setAttribute("style", "display: block");
+  // Display the user's score
   var scoreDisplay = numOfCorrect * questionValue;
   scoreSpan.textContent = scoreDisplay + "%";
+  // Event listener for Submit Button
   submitButton.addEventListener("click", function () {
     var highScoresObject = {
       initials: initialsInput.value,
