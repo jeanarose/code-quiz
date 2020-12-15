@@ -70,7 +70,6 @@ var questionsArray = [
 
 // High scores arrays
 var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
-// var unstringifiedHighScoresArray = JSON.parse(stringifiedHighScoresArray);
 
 // Trackers
 var questionTracker = 0;
@@ -173,7 +172,9 @@ function writeNextQuestion() {
 function enterInitials() {
   questionPage.innerHTML = "";
   completedQuizPage.setAttribute("style", "display: block");
-  // timerString.textContent = "0";
+  // Stop timer 
+  // ...
+  //
   var scoreDisplay = numOfCorrect * questionValue;
   scoreSpan.textContent = scoreDisplay + "%";
   submitButton.addEventListener("click", function () {
@@ -184,7 +185,6 @@ function enterInitials() {
     };
     highScores.push(highScoresObject);
     localStorage.setItem("highscores", JSON.stringify(highScores));
-    // window.open("./highscores.html")
   });
 }
 
